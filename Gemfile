@@ -28,6 +28,7 @@ gem 'devise-bootstrap-views'
 gem 'bootstrap-sass'
 gem 'stock_quote', '~> 2.0'
 gem 'pry'
+gem 'font-awesome-rails', '~> 4.7', '>= 4.7.0.4'
 # Use Redis adapter to run Action Cable in production
 # gem 'redis', '~> 4.0'
 # Use ActiveModel has_secure_password

@@ -10,6 +10,8 @@
  * files in this directory. Styles in this file should be added after the last require_* statement.
  * It is generally better to create a new file per style scope.
  *
+ *= require font-awesome
+ *= require bootstrap_and_overrides
  *= require devise_bootstrap_views
  *= require_tree .
  *= require_self
@@ -17,10 +19,41 @@
 @import 'bootstrap';
 @import 'bootstrap-sprockets';
 
+@font-face {
+    font-family: 'Glyphicons Halflings';
+    src: url('../assets/glyphicons-halflings-regular.eot');
+    src: url('../assets/glyphicons-halflings-regular.eot?#iefix') format('embedded-opentype'),
+    url('../assets/glyphicons-halflings-regular.woff') format('woff'),
+    url('../assets/glyphicons-halflings-regular.ttf') format('truetype'),
+    url('../assets/glyphicons-halflings-regular.svg#glyphicons_halflingsregular') format('svg');
+  }
+
 .results-block{
     display: inline-block;
 }
 
-.no_padding{
+.no-padding{
     padding: 0 !important;
+}
+
+.left-padding {
+    padding-left: 15px !important;
+}
+
+.logout {
+    padding-left: 0;
+}
+
+.user-name {
+    padding-top: 15px;
+}
+
+.nav.navbar-right li {
+    .btn{
+        color: #fff !important;
+        margin-top: 5%;
+    }
+    .btn-danger:hover {
+        background-color:  darken(#d9534f, 20%) !important;
+    }
 }
