@@ -4,6 +4,7 @@ class CreateStocks < ActiveRecord::Migration[5.2]
       t.string :ticker
       t.string :name
       t.decimal :last_price
+      
     end
   end
 end
