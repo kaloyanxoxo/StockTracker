@@ -4,5 +4,8 @@ Rails.application.routes.draw do
   get 'tracking_list', to: "users#my_tracks"
   get 'search_stock', to: "stocks#search"
   resources :user_stocks, only: [:create, :destroy]
+  resources :users, only: [:show]
+  resources :friendships
   get 'friends', to: "users#friends"
+  get 'search_friends', to: "users#search"
 end
