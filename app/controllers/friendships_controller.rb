@@ -6,5 +6,4 @@ class FriendshipsController < ApplicationController
         flash[:notice] = "Friend was successfully removed"
         redirect_to friends_path
     end
-
 end
