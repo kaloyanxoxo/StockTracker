@@ -14,7 +14,7 @@ class User < ApplicationRecord
     return false unless stock
     user_stocks.where(stock_id: stock.id).exists?
   end
-
+    
   def under_stock_limit?
     (user_stocks.count < 14)
   end
@@ -27,4 +27,34 @@ class User < ApplicationRecord
     return "#{first_name} #{last_name}".strip if (first_name || last_name)
     "Anonymous"
   end
+
+  def self.search(param)
+    param.strip!
+    param.downcase!
+    to_send_back = (first_name_matches(param) + last_name_matches(param) + email_matches(param)).uniq
+    return nil unless to_send_back
+    # return all matches, except the current logged in user!
+    to_send_back
+  end
+
+  def self.first_name_matches(param)
+    matches('first_name', param)
+  end
+  
+  def self.last_name_matches(param)
+    matches('last_name', param)    
+  end
+
+  def self.email_matches(param)
+    matches('email', param)
+  end
+  
+  def self.matches(field_name, param)
+    User.where("#{field_name} like?", "%#{param}%")
+  end
+  
+  def except_current_users(users)
+    users.reject { |user| user.id == self.id}
+  end
+  
 end
